@@ -26,7 +26,7 @@
 		<p>Bairro: {{ teste.bairro }}</p>
 		<p>Descrição: {{ teste.descricao }}</p>
 		<p>Kml: {{ teste.kml }}</p>
-		<a href=“{{ MEDIA_URL }}{{ teste.kml }}>download</a>
+		<a href=“{{ MEDIA_URL }}{{ teste.kml }}></a>
 		<p>Mapa: {{ teste.pdf }}</p>
     </div>
 {% endfor %}
@@ -41,10 +41,12 @@
         });
 
         var ctaLayer = new google.maps.KmlLayer({
-        
+			{% for teste in mapas %}
 		  
-		  url: 'http://pintoadria.pythonanywhere.com/media/uploads/km07_qn-17.kml',
-	
+				url: '<a href=“{{ MEDIA_URL }}{{ teste.kml }}></a>',
+			
+			{% endfor %}
+			
           map: map
         });
       }
