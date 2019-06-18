@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="km07_qn_17" id="km07_qn_17">
+	<SimpleField name="id" type="string"></SimpleField>
+	<SimpleField name="Quadra" type="string"></SimpleField>
+</Schema>
+<Folder><name>km07_qn_17</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#km07_qn_17">
+		<SimpleData name="Quadra">QN-17</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><altitudeMode>relativeToGround</altitudeMode><outerBoundaryIs><LinearRing><altitudeMode>relativeToGround</altitudeMode><coordinates>-49.0804500161181,-5.34488915242673 -49.0795610800044,-5.34492851571238 -49.0795722730376,-5.34521533225065 -49.0795717002616,-5.34528334848966 -49.0795827840153,-5.34565366929017 -49.0803508436081,-5.345740918315 -49.0804500161181,-5.34488915242673</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>
