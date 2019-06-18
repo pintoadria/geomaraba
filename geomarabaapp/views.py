@@ -5,4 +5,4 @@ def principal(request):
 
 def mapa(request):
     mapas = Dados.objects.all() 
-    return render(request, 'geomaraba/mapa.html', {'mapas': mapas}
+    return render(request, 'geomaraba/mapa.html', {'mapas': mapas})
