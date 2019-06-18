@@ -43,7 +43,7 @@
         var ctaLayer = new google.maps.KmlLayer({
 			{% for teste in mapas %}
 		  
-				url: '<a href=“{{ MEDIA_URL }}{{ teste.kml }}></a>',
+				url: '<a href={{ MEDIA_URL }}{{ teste.kml }}></a>',
 			
 			{% endfor %}
 			
