@@ -19,18 +19,6 @@
     </style>
   </head>
   <body>
-  
-  {% for teste in mapas %}
-    <div>
-        <p>Região: {{ teste.regiao }}</p>
-		<p>Bairro: {{ teste.bairro }}</p>
-		<p>Descrição: {{ teste.descricao }}</p>
-		<p>Kml: {{ teste.kml }}</p>
-		<a href={{ MEDIA_URL }}{{ teste.kml }}></a>
-		<p>Mapa: {{ teste.pdf }}</p>
-    </div>
-{% endfor %}
-
     <div id="map"></div>
     <script>
 
