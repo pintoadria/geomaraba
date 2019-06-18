@@ -19,6 +19,15 @@
     </style>
   </head>
   <body>
+  
+  {% for teste in mapas %}
+    <div>
+        <p>Região: {{ teste.regiao }}</p>
+		<p>Bairro: {{ teste.bairro }}</p>
+		<p>Descrição: {{ teste.descricao }}</p>
+    </div>
+{% endfor %}
+
     <div id="map"></div>
     <script>
 
