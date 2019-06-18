@@ -19,7 +19,14 @@
     </style>
   </head>
   <body>
-    {% for teste in mapas %}<div id="map"></div>
+  
+	<select name="cars">
+		{% for teste in mapas %}
+			<option value="{{ teste.regiao }}">{{ teste.regiao }}</option>
+		{% endfor %}	
+	</select>
+  
+    <div id="map"></div>
     <script>
 
       function initMap() {
@@ -29,11 +36,11 @@
         });
 
         var ctaLayer = new google.maps.KmlLayer({
-			
+			{% for teste in mapas %}
 		  
 				url: 'http://pintoadria.pythonanywhere.com/media/{{ teste.kml }}',
 			
-			
+			{% endfor %}
 			
           map: map
         });
@@ -42,6 +49,5 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwyZUPU8ICA80UrlZdzxD_Ld9SsXXzRSU&callback=initMap">
     </script>
-	{% endfor %}
   </body>
 </html>
