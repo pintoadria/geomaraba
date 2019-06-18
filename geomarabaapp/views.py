@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Dados
 
 def principal(request):
     return render(request, 'geomaraba/principal.html', {})
