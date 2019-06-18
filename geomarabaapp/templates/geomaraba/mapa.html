@@ -40,10 +40,10 @@
         });
 
         var ctaLayer = new google.maps.KmlLayer({
-          {% for teste in mapas %}
+        
 		  
-		  url: '{{ teste.kml }}',
-		  {% endfor %}
+		  url: 'http://pintoadria.pythonanywhere.com/media/uploads/km07_qn-17.kml',
+	
           map: map
         });
       }
