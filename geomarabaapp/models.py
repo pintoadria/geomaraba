@@ -2,6 +2,15 @@ from django.db import models
 from django.utils import timezone
 import json
 
+class Brand(models.Model):
+	company_name = models.CharField(max_length=100)
+
+class Car(models.Model):
+	brand = models.ForeignKey(Brand)
+	name = models.CharField(max_length=100)
+
+	def __str__(self):
+		return {'name': self.name, 'brand': self.brand.company_name}
 
 class Dados(models.Model):
 	regiao = models.CharField(max_length=200)
@@ -21,13 +30,3 @@ class Dados(models.Model):
 
 	def __str__(self):
 		return u'%s %s' % (self.regiao, self.bairro)
-		
-class Brand(models.Model):
-	company_name = models.CharField(max_length=100)
-
-class Car(models.Model):
-	brand = models.ForeignKey(Brand)
-	name = models.CharField(max_length=100)
-
-	def __str__(self):
-		return {'name': self.name, 'brand': self.brand.company_name}
