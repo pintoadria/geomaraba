@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Dados, Brand
+from .models import Dados, Brand, Car
 import json
 
 def principal(request):
