@@ -30,7 +30,7 @@ class Brand(models.Model):
 		return u'%s %s' % (self.company_name, self.teste)
 	
 class Car(models.Model):
-	brand = models.ForeignKey(Brand)
+	brand = models.ForeignKey(Brand, on_delete=models.PROTECT)
 	name = models.CharField(max_length=100)
 
 	def __str__(self):
