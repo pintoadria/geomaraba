@@ -26,7 +26,7 @@ class Brand(models.Model):
 	company_name = models.CharField(max_length=100)
 	
 	def __str__(self):
-		return u'%s %s' % (self.company_name, self.company_name)
+		return self.company_name
 
 #class Car(models.Model):
 #	brand = models.ForeignKey(Brand)
