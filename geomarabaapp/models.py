@@ -35,4 +35,4 @@ class Car(models.Model):
 
 	def __str__(self):
 		return {'name': self.name, 'brand': self.brand.company_name}
-#		return u'%s %s' % (self.regiao, self.bairro)
+#		return u'%s %s' % (self.regiao, self.bairro)a
