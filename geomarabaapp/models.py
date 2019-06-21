@@ -24,6 +24,10 @@ class Dados(models.Model):
 		
 class Brand(models.Model):
 	company_name = models.CharField(max_length=100)
+	teste = models.CharField(max_length=200)
+	
+	def __str__(self):
+		return u'%s %s' % (self.company_name, self.teste)
 	
 #class Car(models.Model):
 #	brand = models.ForeignKey(Brand)
