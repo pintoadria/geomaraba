@@ -34,5 +34,6 @@ class Car(models.Model):
 	name = models.CharField(max_length=100)
 
 	def __str__(self):
-		return {'name': self.name, 'brand': self.brand.company_name}
+		return u'Name: %s Marca:%s' % (self.name, self.brand.company_name)
+		#return {'name': self.name, 'brand': self.brand.company_name}
 #		return u'%s %s' % (self.regiao, self.bairro)
