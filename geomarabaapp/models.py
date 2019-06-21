@@ -25,13 +25,13 @@ class Dados(models.Model):
 class Brand(models.Model):
 	company_name = models.CharField(max_length=100)
 
-class Car(models.Model):
-	brand = models.ForeignKey(Brand)
-	name = models.CharField(max_length=100)
+#class Car(models.Model):
+#	brand = models.ForeignKey(Brand)
+#	name = models.CharField(max_length=100)
+#
+#	def __str__(self):
+#		return {'name': self.name, 'brand': self.brand.company_name}
 
-	def __str__(self):
-		return {'name': self.name, 'brand': self.brand.company_name}
-
-class Fleet(models.Model):
-		car_model = models.ForeignKey(Car)
-		description = models.CharField(max_length=100)
+#class Fleet(models.Model):
+#		car_model = models.ForeignKey(Car)
+#		description = models.CharField(max_length=100)
