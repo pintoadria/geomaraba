@@ -22,4 +22,4 @@ def regcar(request):
 			dcars[brand] = [car.name]
 	cars = json.dumps(dcars)
 	brands = json.dumps([str(b) for b in brands])
-	return render(request, 'core/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
+	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
