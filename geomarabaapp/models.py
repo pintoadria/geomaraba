@@ -22,12 +22,12 @@ class Dados(models.Model):
 		return u'%s %s' % (self.regiao, self.bairro)
 		
 		
-class Car(models.Model):
-	brand = models.ForeignKey(Brand)
-	name = models.CharField(max_length=100)
-
-	def __str__(self):
-		return {'name': self.name, 'brand': self.brand.company_name}
-		
 class Brand(models.Model):
 	company_name = models.CharField(max_length=100)
+
+#class Car(models.Model):
+#	brand = models.ForeignKey(Brand)
+#	name = models.CharField(max_length=100)
+
+#	def __str__(self):
+#		return {'name': self.name, 'brand': self.brand.company_name}
