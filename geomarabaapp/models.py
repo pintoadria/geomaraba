@@ -31,7 +31,3 @@ class Car(models.Model):
 
 	def __str__(self):
 		return {'name': self.name, 'brand': self.brand.company_name}
-
-class Fleet(models.Model):
-		car_model = models.ForeignKey(Car)
-		description = models.CharField(max_length=100)
