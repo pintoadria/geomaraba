@@ -1,0 +1,86 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Mapa tsste</title>
+    </head>
+
+    <body>
+
+        <h1>Mapa Teste.</h1>
+
+        <p>Mapa</p>
+
+        <div class="select-style">
+            <br />Núcleo:
+            <select required id="nucleo">
+            </select>
+
+            <br />
+            <br />Bairro:
+            <select id="bairro" >
+            </select>
+        </div>
+
+        <script language="javascript">
+            $('#nucleo').change(function() {populatebairro()});
+            var bairros = {{ bairros|safe }}
+            var nucleos = {{ nucleos|safe }}
+            populatenucleo();
+            function populatenucleo() {
+                $("#nucleo").empty();
+                $("#nucleo").append('<option value="" disabled selected>Select your option</option>');
+                $.each(nucleos, function(v) {
+                    $('#nucleo')
+                        .append($("<option></option>")
+                        .attr("value", nucleos[v])
+                    .text(nucleos[v]));
+                })
+            }
+            function populatebairro(event) {
+                nucleo = $("#nucleo option:selected" ).text();
+                $("#bairro").empty();
+                $("#bairro").append('<option value="" disabled selected>Select your option</option>');
+                for (let [b, bbairros] of Object.entries(bairros)) {
+                    if (b==nucleo) {
+                        for (bairro in bbairros) {
+                            $('#bairro')
+                                .append($("<option></option>")
+                                    .attr("value", bbairros[bairro])
+                                    .text(bbairros[bairro]));
+                        }
+                    }
+                }
+            }
+        </script>
+		
+		<div id="map"></div>
+    <script>
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: -5.34, lng: -49.07}
+        });
+
+        var ctaLayer = new google.maps.KmlLayer({
+			{% for teste in mapas %}
+		  
+				url: 'http://pintoadria.pythonanywhere.com/media/{{ teste.kml }}',
+			
+			{% endfor %}
+			
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwyZUPU8ICA80UrlZdzxD_Ld9SsXXzRSU&callback=initMap">
+    </script>
+
+    </body>
+</html>
