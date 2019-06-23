@@ -32,7 +32,7 @@ def testemapa(request):
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
 	for car in cars:
-		brand = str(car.brand)
+		brand = str(bairro.nucleo)
 		if brand in dcars:
 			dcars[brand].append(car.name)
 		else:
