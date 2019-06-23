@@ -2,14 +2,14 @@
 <body>
     <p>Hi there!</p>
 
-		{% for query in nucleo %}
-			{{ query.nucleo }}
+		{% for nucleo in nucleo %}
+			{{ nucleo.nucleo }}
 		{% endfor %}
 		
-		{% for query in bairro %}
-			{{ query.bairro }}
+		{% for bairro in bairro %}
+			{{ bairro.bairro }}
 			/
-			{{ query.bairro.descricao }}
+			{{ bairro.descricao }}
 		{% endfor %}
 </body>
 </html
