@@ -5,5 +5,5 @@ urlpatterns = [
 	path('', views.principal, name='principal'),
 	path('mapa/', views.mapa, name='mapa'),	
 	path('carro/', views.regcar, name='carro'),
-	path('teste/', views.principal2, name='principal2'),
+	path('teste/', views.principal2, name='principal2cmd'),
 ]
