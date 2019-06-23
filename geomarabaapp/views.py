@@ -40,4 +40,4 @@ def testemapa(request):
 			dcars[nucleo] = [bairro.nucleo]
 	bairro = json.dumps(dcars)
 	nucleo = json.dumps([str(b) for b in nucleo])
-	return render(request, 'geomaraba/testemapa.html', {'nucleo': nucleo, 'bairro': bairro, 'opc': 'None'})	
+	return render(request, 'geomaraba/regcar.html', {'nucleo': nucleo, 'bairro': bairro, 'opc': 'None'})	
