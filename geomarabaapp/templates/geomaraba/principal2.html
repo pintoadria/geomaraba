@@ -2,8 +2,11 @@
 <body>
     <p>Hi there!</p>
 
-		{% for query in query %}
+		{% for query in nucleo %}
 			{{ query.nucleo }}
+		{% endfor %}
+		
+		{% for query in bairro %}
 			{{ query.bairro }}
 		{% endfor %}
 </body>
