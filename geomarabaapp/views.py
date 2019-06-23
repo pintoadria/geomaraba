@@ -1,14 +1,18 @@
 from django.shortcuts import render
-from .models import Dados, Brand, Car
+from .models import Dados, Brand, Car, Nucleo, Bairro
 import json
 
 def principal(request):
     return render(request, 'geomaraba/principal.html', {})
 
+def principal2(request):
+	nucleo = Nucleo.objects.all()
+	bairro = Bairro.object.all()
+	return render(request, 'geomaraba/principal2.html', locals())
+	
 def mapa(request):
     mapas = Dados.objects.all() 
     return render(request, 'geomaraba/mapa.html', {'mapas': mapas})
-	
 	
 def regcar(request):
 	brands = Brand.objects.all()

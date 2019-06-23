@@ -2,6 +2,24 @@ from django.db import models
 from django.utils import timezone
 import json
 
+class Nucleo(models.Model):
+	nucleo = models.CharField(max_length=200)
+	descricao = models.TextField()
+	
+	def __str__(self):
+		return u'Núcleo/Zona/Distrito: %s' % (self.nucleo)
+
+class Bairro(models.Model):
+	nucleo = models.ForeignKey(Nucleo, on_delete=models.PROTECT)
+	bairro = models.CharField(max_length=200)
+	descricao = models.TextField()
+	kml = models.FileField(upload_to='uploads/')
+	dwg = models.FileField(upload_to='uploads/')
+	pdf = models.FileField(upload_to='uploads/')
+
+	def __str__(self):
+		return u'Núcleo/Zona/Distrito: %s - Bairro: %s' % (self.nucleo.nucleo, self.bairro)
+	
 class Dados(models.Model):
 	regiao = models.CharField(max_length=200)
 	bairro = models.CharField(max_length=200)
