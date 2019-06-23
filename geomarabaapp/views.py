@@ -7,7 +7,7 @@ def principal(request):
 
 def principal2(request):
 	nucleo = Nucleo.objects.all()
-	bairro = Bairro.object.all()
+	bairro = Bairro.objects.all()
 	return render(request, 'geomaraba/principal2.html', locals())
 	
 def mapa(request):

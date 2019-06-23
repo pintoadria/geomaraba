@@ -19,6 +19,17 @@ class Bairro(models.Model):
 
 	def __str__(self):
 		return u'Núcleo/Zona/Distrito: %s - Bairro: %s' % (self.nucleo.nucleo, self.bairro)
+		
+class Quadra(models.Model):
+	bairro = models.ForeignKey(Bairro, on_delete=models.PROTECT)
+	quadra = models.CharField(max_length=200)
+	descricao = models.TextField()
+	kml = models.FileField(upload_to='uploads/')
+	dwg = models.FileField(upload_to='uploads/')
+	pdf = models.FileField(upload_to='uploads/')
+
+	def __str__(self):
+		return u'Bairro: %s - Quadra: %s' % (self.bairro.bairro, self.quadra)
 	
 class Dados(models.Model):
 	regiao = models.CharField(max_length=200)
