@@ -30,7 +30,7 @@ def regcar(request):
 	
 	if request.method == "POST":
 		a = request.POST['drop1']
-		print a
+		print(a)
 	else:
 		context_dict = {}
     return render(request, 'geomaraba/regcar.html', context_dict)
