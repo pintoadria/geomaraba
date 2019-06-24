@@ -19,7 +19,7 @@ def regcar(request):
 	cars = Bairro.objects.all()
 	dcars = {}
 	for car in cars:
-		brand = str(car.brand)
+		brand = str(bairro.nucleo)
 		if brand in dcars:
 			dcars[brand].append(car.name)
 		else:
