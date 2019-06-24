@@ -29,15 +29,15 @@ def regcar(request):
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
 	
 def testemapa(request):
-	nucleo = Nucleo.objects.all()
-	bairro = Bairro.objects.all()
+	brands = Nucleo.objects.all()
+	cars = Bairro.objects.all()
 	dcars = {}
-	for bairro in bairro:
-		nucleo = str(bairro.nucleo)
-		if nucleo in dcars:
-			dcars[nucleo].append(bairro.bairro)
+	for car in cars:
+		brand = str(car.nucleo)
+		if brand in dcars:
+			dcars[brand].append(car.bairro)
 		else:
-			dcars[nucleo] = [bairro.bairro]
+			dcars[brand] = [car.bairro]
 	cars = json.dumps(dcars)
-	brands = json.dumps([str(b) for b in nucleo])
-	return render(request, 'geomaraba/testemapa.html', {'brands': brands, 'cars': cars, 'opc': 'None'})	
+	brands = json.dumps([str(b) for b in brands])
+	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})

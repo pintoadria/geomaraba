@@ -7,7 +7,7 @@ class Nucleo(models.Model):
 	descricao = models.TextField()
 	
 	def __str__(self):
-		return u'Núcleo/Zona/Distrito: %s' % (self.nucleo)
+		return u'%s' % (self.nucleo)
 
 class Bairro(models.Model):
 	nucleo = models.ForeignKey(Nucleo, on_delete=models.PROTECT)
@@ -18,7 +18,7 @@ class Bairro(models.Model):
 	pdf = models.FileField(upload_to='uploads/')
 
 	def __str__(self):
-		return u'Núcleo/Zona/Distrito: %s - Bairro: %s' % (self.nucleo.nucleo, self.bairro)
+		return u'%s - Bairro: %s' % (self.nucleo.nucleo, self.bairro)
 		
 class Quadra(models.Model):
 	bairro = models.ForeignKey(Bairro, on_delete=models.PROTECT)
