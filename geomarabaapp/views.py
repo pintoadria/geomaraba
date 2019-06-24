@@ -19,11 +19,11 @@ def regcar(request):
 	cars = Bairro.objects.all()
 	dcars = {}
 	for car in cars:
-		brand = str(bairro.nucleo)
+		brand = str(car.nucleo)
 		if brand in dcars:
-			dcars[brand].append(car.name)
+			dcars[brand].append(car.bairro)
 		else:
-			dcars[brand] = [car.name]
+			dcars[brand] = [car.bairro]
 	cars = json.dumps(dcars)
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
