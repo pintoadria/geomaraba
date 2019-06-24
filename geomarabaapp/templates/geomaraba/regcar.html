@@ -23,8 +23,17 @@
             <br />
             <br />Car:
             <select id="car" >
-            </select>
+			</select>
         </div>
+		
+		<br />
+            <br />Car:
+            <select id="car" >
+		   {% for cars in cars %}
+     <option value="{{ cars.id }}">
+     </option>
+	 </select>
+   {% endfor %}
 
         <script language="javascript">
             $('#brand').change(function() {populateCar()});
@@ -57,6 +66,31 @@
                 }
             }
         </script>
+		
+		
+		<div id="map"></div>
+    <script>
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: -5.34, lng: -49.07}
+        });
+
+        var ctaLayer = new google.maps.KmlLayer({
+			{% for teste in mapas %}
+		  
+				url: 'http://pintoadria.pythonanywhere.com/media/{{ teste.kml }}',
+			
+			{% endfor %}
+			
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwyZUPU8ICA80UrlZdzxD_Ld9SsXXzRSU&callback=initMap">
+    </script>
 
     </body>
 </html>
