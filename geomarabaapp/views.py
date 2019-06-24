@@ -33,7 +33,7 @@ def regcar(request):
 		print(a)
 	else:
 		context_dict = {}
-    return render(request, 'geomaraba/regcar.html', context_dict)
+		return render(request, 'geomaraba/regcar.html', context_dict)
 	
 def testemapa(request):
 	brands = Nucleo.objects.all()
