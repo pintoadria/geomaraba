@@ -26,13 +26,11 @@ def regcar(request):
 			dcars[brand] = [car.bairro]
 	cars = json.dumps(dcars)
 	brands = json.dumps([str(b) for b in brands])
+	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
+	
 	if request.method == "POST":
 		a = request.POST['drop1']
-	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None', 'a': a})
-	
-	#if request.method == "POST":
-	#	a = request.POST['drop1']
-	#	return render(request, 'geomaraba/regcar.html', {'a': a})
+		return render(request, 'geomaraba/principal2.html', locals())
 	
 def testemapa(request):
 	brands = Nucleo.objects.all()
