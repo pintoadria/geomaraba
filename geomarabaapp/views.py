@@ -30,7 +30,8 @@ def regcar(request):
 	
 	if request.method == "POST":
 		a = request.POST['drop1']
-		return render(request, 'geomaraba/principal2.html', locals())
+		#return render(request, 'geomaraba/principal2.html', locals())
+		return HttpResponseRedirect('/carro/')
 	
 def testemapa(request):
 	brands = Nucleo.objects.all()
