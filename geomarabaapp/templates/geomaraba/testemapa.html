@@ -26,37 +26,7 @@
             </select>
         </div>
 
-        <script language="javascript">
-            $('#nucleo').change(function() {populatebairro()});
-            var bairro = {{ bairro|safe }}
-            var nucleo = {{ nucleo.nucleo|safe }}
-            populatenucleo();
-            function populatenucleo() {
-                $("#nucleo").empty();
-                $("#nucleo").append('<option value="" disabled selected>Select your option</option>');
-                $.each(nucleo, function(v) {
-                    $('#nucleo')
-                        .append($("<option></option>")
-                        .attr("value", nucleo[v])
-                    .text(nucleo[v]));
-                })
-            }
-            function populatebairro(event) {
-                nucleo = $("#nucleo option:selected" ).text();
-                $("#bairro").empty();
-                $("#bairro").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bbairros] of Object.entries(bairro)) {
-                    if (b==nucleo) {
-                        for (bairro in bbairros) {
-                            $('#bairro')
-                                .append($("<option></option>")
-                                    .attr("value", bbairros[bairro])
-                                    .text(bbairros[bairro]));
-                        }
-                    }
-                }
-            }
-        </script>
+        
 		----
 		<script language="javascript">
             $('#brand').change(function() {populateCar()});
