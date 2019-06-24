@@ -29,7 +29,7 @@
         <script language="javascript">
             $('#nucleo').change(function() {populatebairro()});
             var bairro = {{ bairro|safe }}
-            var nucleo = {{ nucleo|safe }}
+            var nucleo = {{ nucleo.nucleo|safe }}
             populatenucleo();
             function populatenucleo() {
                 $("#nucleo").empty();
