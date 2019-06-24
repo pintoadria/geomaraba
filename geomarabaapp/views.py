@@ -15,8 +15,8 @@ def mapa(request):
     return render(request, 'geomaraba/mapa.html', {'mapas': mapas})
 	
 def regcar(request):
-	brands = Brand.objects.all()
-	cars = Car.objects.all()
+	brands = Nucleo.objects.all()
+	cars = Bairro.objects.all()
 	dcars = {}
 	for car in cars:
 		brand = str(car.brand)
