@@ -31,13 +31,13 @@ def regcar(request):
 def testemapa(request):
 	nucleo = Nucleo.objects.all()
 	bairro = Bairro.objects.all()
-	abairros = {}
+	dcars = {}
 	for bairro in bairro:
 		nucleo = str(bairro.nucleo)
-		if nucleo in abairro:
-			abairro[nucleo].append(bairro.bairro)
+		if nucleo in dcars:
+			dcars[nucleo].append(bairro.bairro)
 		else:
-			abairros[nucleo] = [bairro.bairro]
-	bairro = json.dumps(abairros)
+			dcars[nucleo] = [bairro.bairro]
+	bairro = json.dumps(dcars)
 	nucleo = json.dumps([str(b) for b in nucleo])
 	return render(request, 'geomaraba/testemapa.html', {'nucleo': nucleo, 'bairro': bairro, 'opc': 'None'})	
