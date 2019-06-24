@@ -28,7 +28,7 @@ def regcar(request):
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
 	
-	if request.method == ["POST"]:
+	if request.method == "POST":
 		a = request.POST['drop1']
 		print a
 	else:
