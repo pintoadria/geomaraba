@@ -21,9 +21,9 @@ def regcar(request):
 	for car in cars:
 		brand = str(car.nucleo)
 		if brand in dcars:
-			dcars[brand].append(car.bairro)
+			dcars[brand].append(car.id)
 		else:
-			dcars[brand] = [car.bairro]
+			dcars[brand] = [car.id]
 	cars = json.dumps(dcars)
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
