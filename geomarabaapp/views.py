@@ -38,6 +38,6 @@ def testemapa(request):
 			dcars[nucleo].append(bairro.bairro)
 		else:
 			dcars[nucleo] = [bairro.bairro]
-	cars = json.dumps(dcars)
-	brands = json.dumps([str(b) for b in nucleo])
-	return render(request, 'geomaraba/testemapa.html', {'brands': brands, 'cars': cars, 'opc': 'None'})	
+	bairro = json.dumps(dcars)
+	nucleo = json.dumps([str(b) for b in nucleo])
+	return render(request, 'geomaraba/testemapa.html', {'nucleo': nucleo, 'bairro': bairro, 'opc': 'None'})	

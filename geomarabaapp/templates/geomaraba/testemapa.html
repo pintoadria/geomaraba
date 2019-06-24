@@ -22,38 +22,38 @@
 
             <br />
             <br />Bairro:
-            <select id="bairro" >
+            <select id="car" >
             </select>
         </div>
 
         
 		----
 		<script language="javascript">
-            $('#brand').change(function() {populateCar()});
-            var cars = {{ cars|safe }}
-            var brands = {{ brands|safe }}
-            populateBrand();
-            function populateBrand() {
-                $("#brand").empty();
-                $("#brand").append('<option value="" disabled selected>Select your option</option>');
-                $.each(brands, function(v) {
-                    $('#brand')
+            $('#nucleo').change(function() {populateCar()});
+            var bairro = {{ bairro|safe }}
+            var nucleos = {{ nucleos|safe }}
+            populatenucleo();
+            function populatenucleo() {
+                $("#nucleo").empty();
+                $("#nucleo").append('<option value="" disabled selected>Select your option</option>');
+                $.each(nucleos, function(v) {
+                    $('#nucleo')
                         .append($("<option></option>")
-                        .attr("value", brands[v])
-                    .text(brands[v]));
+                        .attr("value", nucleos[v])
+                    .text(nucleos[v]));
                 })
             }
             function populateCar(event) {
-                brand = $("#brand option:selected" ).text();
+                nucleo = $("#nucleo option:selected" ).text();
                 $("#car").empty();
                 $("#car").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(cars)) {
-                    if (b==brand) {
-                        for (car in bcars) {
+                for (let [b, bbairro] of Object.entries(bairro)) {
+                    if (b==nucleo) {
+                        for (car in bbairro) {
                             $('#car')
                                 .append($("<option></option>")
-                                    .attr("value", bcars[car])
-                                    .text(bcars[car]));
+                                    .attr("value", bbairro[car])
+                                    .text(bbairro[car]));
                         }
                     }
                 }
