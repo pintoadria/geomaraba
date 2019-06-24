@@ -57,6 +57,38 @@
                 }
             }
         </script>
+		----
+		<script language="javascript">
+            $('#brand').change(function() {populateCar()});
+            var cars = {{ cars|safe }}
+            var brands = {{ brands|safe }}
+            populateBrand();
+            function populateBrand() {
+                $("#brand").empty();
+                $("#brand").append('<option value="" disabled selected>Select your option</option>');
+                $.each(brands, function(v) {
+                    $('#brand')
+                        .append($("<option></option>")
+                        .attr("value", brands[v])
+                    .text(brands[v]));
+                })
+            }
+            function populateCar(event) {
+                brand = $("#brand option:selected" ).text();
+                $("#car").empty();
+                $("#car").append('<option value="" disabled selected>Select your option</option>');
+                for (let [b, bcars] of Object.entries(cars)) {
+                    if (b==brand) {
+                        for (car in bcars) {
+                            $('#car')
+                                .append($("<option></option>")
+                                    .attr("value", bcars[car])
+                                    .text(bcars[car]));
+                        }
+                    }
+                }
+            }
+        </script>
 		
 		<div id="map"></div>
     <script>
