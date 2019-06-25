@@ -104,23 +104,7 @@ $.ajax({
                 }
             
 			}
-			            function populateKml(event) {
-                brand = $("#brand option:selected" ).text();
-                $("#car2").empty();
-                $("#car2").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(kml)) {
-                    if (b==brand) {
-                        for (car in bcars) {
-                            $('#car2')
-                                .append($("<option></option>")
-                                    .attr("value", bcars[car])
-                                    .text(bcars[car]));
-					}		
-						
-                    }
-                }
-            
-			}
+			           
         </script>
 		
 		
