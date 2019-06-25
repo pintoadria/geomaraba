@@ -49,16 +49,16 @@ def regcar(request):
 	
 	
 	if request.method == "GET" and request.is_ajax():
-		username = request.GET.get("username")
+		bairro = request.GET.get("kml")
 		try:
-			user = User.objects.get(username = username)
+			bairro = Bairro.objects.get(kml = kml)
 		except:
 			return JsonResponse({"success":False}, status=400)
 		user_info = {
-			"first_name": user.first_name,
-			"last_name": user.last_name,
+			"kml": bairro.kml,
+			#"last_name": user.last_name,
 			#"email": user.email,
-			"is_active": user.is_active,
+			#"is_active": user.is_active,
 			#"joined": user.date_joined
 		}
 		return JsonResponse({"user_info":user_info}, status=200)
