@@ -77,7 +77,6 @@ $.ajax({
             $('#brand').change(function() {populateCar()});
 			$('#brand').change(function() {populateCar2()});
             var cars = {{ cars|safe }}
-			var kml = {{ kml }}
 			var brands = {{ brands|safe }}
             populateBrand();
             function populateBrand() {
@@ -94,7 +93,7 @@ $.ajax({
                 brand = $("#brand option:selected" ).text();
                 $("#car").empty();
                 $("#car").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(cars)) {
+                for (let [b, bcars] of Object.entries(cars.bairro)) {
                     if (b==brand) {
                         for (car in bcars) {
                             $('#car')
@@ -112,7 +111,7 @@ $.ajax({
                 brand = $("#brand option:selected" ).text();
                 $("#car2").empty();
                 $("#car2").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(kml)) {
+                for (let [b, bcars] of Object.entries(cars.kml)) {
                     if (b==brand) {
                         for (car in bcars) {
                             $('#car2')
