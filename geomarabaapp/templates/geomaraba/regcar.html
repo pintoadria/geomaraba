@@ -112,12 +112,10 @@ $.ajax({
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
+									var selectedValue = $(this).val();
+									$("#txtBox").val($(this).find("value").attr("value"))
 											}
-function () {
-    var selectedValue = $(this).val();
-    $("#txtBox").val($(this).find("value").attr("value"))											
-						
-                    }
+
                 }
             
 			}
