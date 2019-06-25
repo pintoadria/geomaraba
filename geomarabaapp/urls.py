@@ -9,6 +9,8 @@ urlpatterns = [
 	path('testemapa/', views.testemapa, name='testemapa'),
 	path(r'teste_ajax/(\d+)/$', views.teste_ajax, name='teste_ajax'),
 	
+	path('manda_cod_produto/', views.manda_cod_produto, name='manda_cod_produto'),
+	
 	
 	#(r'^teste_ajax/(\d+)/$', 'geomarabaapp.views.teste_ajax'),
 	

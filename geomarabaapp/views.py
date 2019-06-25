@@ -67,3 +67,7 @@ def post(request):
 		
 def teste_ajax(request, id_):
     return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')		
+	
+	
+def manda_cod_produto(request):
+    return render('geomaraba/exemplo.html', request, {'cod_produto': 1234})	
