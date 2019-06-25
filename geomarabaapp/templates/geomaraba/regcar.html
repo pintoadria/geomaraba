@@ -13,7 +13,7 @@ var e = document.getElementById("select_dropdown");
 var value = e.options[e.selectedIndex].value;
 
 $.ajax({
-    url: "/carro/",
+    url: "/kmlro/",
     type: "post", // or "get"
     data: value,
     success: function(data) {
@@ -48,7 +48,7 @@ $.ajax({
 
         <h1>Populate one dropdown based on selection in another.</h1>
 
-        <p>Change the contents of dropdown Car based on the selection in dropdown Brand, using Django + Javascript:</p>
+        <p>Change the contents of dropdown kml based on the selection in dropdown Brand, using Django + Javascript:</p>
 
         <div class="select-style">
             <br />Brand:
@@ -56,8 +56,8 @@ $.ajax({
             </select>
 
             <br />
-            <br />Car:
-            <select id="car" >
+            <br />kml:
+            <select id="kml" >
 			</select>
         </div>
 		
@@ -68,8 +68,8 @@ $.ajax({
 
 
         <script language="javascript">
-            $('#brand').change(function() {populateCar()});
-            var cars = {{ cars|safe }}
+            $('#brand').change(function() {populatekml()});
+            var kmls = {{ kmls|safe }}
             var brands = {{ brands|safe }}
             populateBrand();
             function populateBrand() {
@@ -82,17 +82,17 @@ $.ajax({
                     .text(brands[v]));
                 })
             }
-            function populateCar(event) {
+            function populatekml(event) {
                 brand = $("#brand option:selected" ).text();
-                $("#car").empty();
-                $("#car").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(cars)) {
+                $("#kml").empty();
+                $("#kml").append('<option value="" disabled selected>Select your option</option>');
+                for (let [b, bkmls] of Object.entries(kmls)) {
                     if (b==brand) {
-                        for (car in bcars) {
-                            $('#car')
+                        for (kml in bkmls) {
+                            $('#kml')
                                 .append($("<option></option>")
-                                    .attr("value", bcars[car])
-                                    .text(bcars[car]));
+                                    .attr("value", bkmls[kml])
+                                    .text(bkmls[kml]));
 					}		
 						
                     }
