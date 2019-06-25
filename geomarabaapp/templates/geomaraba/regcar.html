@@ -90,25 +90,30 @@ $.ajax({
                     .text(brands[v]));
                 })
             }
-          
-			
-			    function populateCar2(event) {
+            function populateCar(event) {
                 brand = $("#brand option:selected" ).text();
-                $("#car2").empty();
-                $("#car2").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(kml)) {
+                $("#car").empty();
+                $("#car").append('<option value="" disabled selected>Select your option</option>');
+                for (let [b, bcars] of Object.entries(cars)) {
                     if (b==brand) {
                         for (car in bcars) {
-                            $('#car2')
+                            $('#car')
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
+									
+							$('#car2')
+                                .append($("<option></option>")
+                                    .attr("value", bcars[kml])
+                                    .text(bcars[kml]));		
 					}		
 						
                     }
                 }
             
 			}
+			
+			   
 			           
         </script>
 		
