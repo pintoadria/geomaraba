@@ -10,7 +10,7 @@ urlpatterns = [
 	#path('teste_ajax/(\d+)/$', views.teste_ajax, name='teste_ajax'),
 	
 	
-	(r'^teste_ajax/(\d+)/$', 'app.views.teste_ajax'),
+	(r'^teste_ajax/(\d+)/$', 'geomarabaapp.views.teste_ajax'),
 	
 	
 	
