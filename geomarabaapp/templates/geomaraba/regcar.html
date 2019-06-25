@@ -112,8 +112,7 @@ $.ajax({
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
-									
-									$("#txtBox").val($(this).find("value").attr("value"))
+									$("#txtBox").attr("value"))
 											}
 
                 }
@@ -122,13 +121,7 @@ $.ajax({
         </script>
 		
 		
-<script>
-$("#myDropdown").change(function () {
-    var selectedValue = $(this).val();
-    $("#txtBox").val($(this).find("option:selected").attr("value"))
-});
 
-</script>
 		
 		<form method = "post" action = "/carro/">
 {% csrf_token %}
