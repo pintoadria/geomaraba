@@ -29,11 +29,6 @@ def regcar(request):
 		else:
 			dcars[brand] = [car.bairro]
 			kml[brand] = [car.kml]
-			
-		if brand in kml:
-			kml[brand].append(car.kml)
-		else:
-			kml[brand] = [car.kml]	
 	cars = json.dumps(dcars)
 	kml = kml
 	brands = json.dumps([str(b) for b in brands])
