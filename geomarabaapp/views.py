@@ -64,3 +64,6 @@ def post(request):
 		a = request.POST['drop1']
 		#return render(request, 'geomaraba/principal2.html', locals())
 		return HttpResponseRedirect('/carro/')	
+		
+def teste_ajax(request, id_):
+    return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')		
