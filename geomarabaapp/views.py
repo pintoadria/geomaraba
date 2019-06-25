@@ -25,10 +25,10 @@ def regcar(request):
 		brand = str(car.nucleo)
 		if brand in dcars:
 			dcars[brand].append(car.bairro)
-			kml[brand].append(car.kml)
+			kml[brand].append(car.kml.url)
 		else:
 			dcars[brand] = [car.bairro]
-			kml[brand] = [car.kml]
+			kml[brand] = [car.kml.url]
 	cars = json.dumps(dcars)
 	kml = json.dumps(str(kml))
 	brands = json.dumps([str(b) for b in brands])
