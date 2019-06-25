@@ -69,13 +69,14 @@ $.ajax({
 		<input id="txtBox" type="text" disabled>
 		
 			<br />
+			
+			{{ kml }}
 
 
         <script language="javascript">
             $('#brand').change(function() {populateCar()});
             var cars = {{ cars|safe }}
-		
-            var brands = {{ brands|safe }}
+		    var brands = {{ brands|safe }}
             populateBrand();
             function populateBrand() {
                 $("#brand").empty();
