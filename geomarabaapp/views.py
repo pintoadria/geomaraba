@@ -28,8 +28,8 @@ def regcar(request):
 				dcars[brand] = [car.bairro]
 		cars = json.dumps(dcars)
 		brands = json.dumps([str(b) for b in brands])
-		return render(request, 'geomaraba/regcar.html', locals())
-		#return HttpResponseRedirect('/carro/')
+		#return render(request, 'geomaraba/regcar.html', locals())
+		return HttpResponseRedirect('/carro/')
 	
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
@@ -66,8 +66,4 @@ def post(request):
 		return HttpResponseRedirect('/carro/')	
 		
 def teste_ajax(request, id_):
-    return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')		
-	
-	
-def manda_cod_produto(request):
-    return render('geomaraba/exemplo.html', request, {'cod_produto': 1234})	
+    return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')
