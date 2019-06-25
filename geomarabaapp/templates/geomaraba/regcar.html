@@ -59,6 +59,10 @@ $.ajax({
             <br />Car:
             <select id="car" >
 			</select>
+			
+			            <br />Car:
+            <select id="car2" >
+			</select>
         </div>
 		
 
@@ -70,6 +74,7 @@ $.ajax({
         <script language="javascript">
             $('#brand').change(function() {populateCar()});
             var cars = {{ cars|safe }}
+			var kml = {{ kml|safe }}
             var brands = {{ brands|safe }}
             populateBrand();
             function populateBrand() {
@@ -91,8 +96,25 @@ $.ajax({
                         for (car in bcars) {
                             $('#car')
                                 .append($("<option></option>")
-                                    .attr("value", kml)
-                                    .text(kml));
+                                    .attr("value", bcars[car])
+                                    .text(bcars[car]));
+					}		
+						
+                    }
+                }
+            
+			}
+			            function populateKml(event) {
+                brand = $("#brand option:selected" ).text();
+                $("#car2").empty();
+                $("#car2").append('<option value="" disabled selected>Select your option</option>');
+                for (let [b, bcars] of Object.entries(kml)) {
+                    if (b==brand) {
+                        for (car in bcars) {
+                            $('#car2')
+                                .append($("<option></option>")
+                                    .attr("value", bcars[car])
+                                    .text(bcars[car]));
 					}		
 						
                     }
