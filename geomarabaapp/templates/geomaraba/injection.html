@@ -1,0 +1,13 @@
+
+
+
+
+$.ajax({
+    type: 'POST',
+    url: href,
+    data: {csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),},
+    success: function (response) {
+         // replace the inside of #wrapper div with the injection.html (that has the new items values)
+         $("#wrapper").replaceWith(response);
+    }
+});

@@ -119,6 +119,31 @@
 		
 		{{ a }}
 		------
+		
+		<select id="select_dropdown">
+  <option value="joshua">joshua</option>
+  <option value="peter">peter</option>
+  </select>
+ <script>
+	$(document).ready(function(){
+
+$('#select_dropdown').change(function(){
+var e = document.getElementById("select_dropdown");
+var value = e.options[e.selectedIndex].value;
+
+$.ajax({
+    url: "/carro/",
+    type: "post", // or "get"
+    data: value,
+    success: function(data) {
+
+        alert(data.result);
+    }});
+});	
+ </script>
+-----
+
+	
 		<div id="map"></div>
     <script>
 

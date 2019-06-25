@@ -29,8 +29,8 @@ def regcar(request):
 		cars = json.dumps(dcars)
 		brands = json.dumps([str(b) for b in brands])
 		#return render(request, 'geomaraba/regcar.html', locals())
-		#return HttpResponseRedirect('/carro/')
-		return HttpResponseRedirect(reverse('/carro/'))
+		return HttpResponseRedirect('/carro/')
+		#return HttpResponseRedirect(reverse('/carro/'))
 		
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
@@ -60,11 +60,13 @@ def testemapa(request):
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
 	
-def post(request):	
-	if request.method == "POST":
-		a = request.POST['drop1']
-		#return render(request, 'geomaraba/principal2.html', locals())
-		return HttpResponseRedirect('/carro/')	
+def post(request):
+    if request.method == "POST": #os request.GET()
+        get_value= request.body
+        # Do your logic here coz you got data in `get_value`
+        data = {}
+        data['result'] = 'you made a request'
+        return HttpResponse(json.dumps(data), content_type="application/json")	
 		
 def teste_ajax(request, id_):
     return HttpResponse('Id recebido via AJAX: <strong>{0}</strong>'.format(id_), mimetype='text/html')
