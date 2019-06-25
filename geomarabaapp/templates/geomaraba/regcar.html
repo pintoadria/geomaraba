@@ -75,6 +75,7 @@ $.ajax({
 
         <script language="javascript">
             $('#brand').change(function() {populateCar()});
+			$('#brand').change(function() {populateCar2()});
             var cars = {{ cars|safe }}
 		    var brands = {{ brands|safe }}
             populateBrand();
@@ -99,8 +100,15 @@ $.ajax({
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
-									
+					}		
+						
+                    }
+                }
+            
+			}
 			
+			    function populateCar2(event) {
+                brand = $("#brand option:selected" ).text();
                 $("#car2").empty();
                 $("#car2").append('<option value="" disabled selected>Select your option</option>');
                 for (let [b, bcars] of Object.entries(cars)) {
@@ -109,15 +117,13 @@ $.ajax({
                             $('#car2')
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
-                                    .text(bcars[car]));				
+                                    .text(bcars[car]));
 					}		
 						
                     }
                 }
             
 			}
-			
-	
 			           
         </script>
 		
