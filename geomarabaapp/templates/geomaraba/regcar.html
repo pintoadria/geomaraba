@@ -5,6 +5,23 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<script type="text/javascript">
+	$(document).ready(function(){
+
+$('#select_dropdown').change(function(){
+var e = document.getElementById("select_dropdown");
+var value = e.options[e.selectedIndex].value;
+
+$.ajax({
+    url: "/carro/",
+    type: "post", // or "get"
+    data: value,
+    success: function(data) {
+
+        alert(data.result);
+    }});
+});	
+ </script>
         <link href="{% static "css/style.css" %}" rel="stylesheet">
         <meta charset="UTF-8">
         <title>Populating a Select with Django</title>
@@ -124,23 +141,7 @@
   <option value="joshua">joshua</option>
   <option value="peter">peter</option>
   </select>
- <script>
-	$(document).ready(function(){
 
-$('#select_dropdown').change(function(){
-var e = document.getElementById("select_dropdown");
-var value = e.options[e.selectedIndex].value;
-
-$.ajax({
-    url: "/carro/",
-    type: "post", // or "get"
-    data: value,
-    success: function(data) {
-
-        alert(data.result);
-    }});
-});	
- </script>
 -----
 
 	
