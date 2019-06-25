@@ -102,10 +102,18 @@ $.ajax({
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
 									
-							$('#car2')
+
+					}		
+						
+                    }
+					if (b==brand) {
+                        for (car in bkml) {
+                            $('#car')
                                 .append($("<option></option>")
-                                    .attr("value", bcars[kml])
-                                    .text(bcars[kml]));		
+                                    .attr("value", bkml[car])
+                                    .text(bkml[car]));
+									
+
 					}		
 						
                     }
