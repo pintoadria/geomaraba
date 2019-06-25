@@ -77,6 +77,7 @@ $.ajax({
             $('#brand').change(function() {populateCar()});
 			$('#brand').change(function() {populateCar2()});
             var cars = {{ cars|safe }}
+			var kml = {{ kml|safe }}
 		    var brands = {{ brands|safe }}
             populateBrand();
             function populateBrand() {
