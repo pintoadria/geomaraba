@@ -28,7 +28,7 @@ def regcar(request):
 			dcars[brand].append(car.bairro)
 			dkml[brand].append(car.kml.url)
 		else:
-			dcars[brand] = [car.bairro]
+			dcars[brand] = [car]
 			dkml[brand] = [car.kml.url]
 	cars = json.dumps(dcars)
 	kml = json.dumps(str(dkml))
