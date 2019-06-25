@@ -7,10 +7,10 @@ urlpatterns = [
 	path('carro/', views.regcar, name='carro'),
 	path('teste/', views.principal2, name='principal2'),
 	path('testemapa/', views.testemapa, name='testemapa'),
-	#path('teste_ajax/(\d+)/$', views.teste_ajax, name='teste_ajax'),
+	path(r'^teste_ajax/(\d+)/$', views.teste_ajax, name='teste_ajax'),
 	
 	
-	(r'^teste_ajax/(\d+)/$', 'geomarabaapp.views.teste_ajax'),
+	#(r'^teste_ajax/(\d+)/$', 'geomarabaapp.views.teste_ajax'),
 	
 	
 	
