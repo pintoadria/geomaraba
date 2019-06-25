@@ -112,7 +112,13 @@ $.ajax({
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car])
-									.attr("value", bcars[txtBox]));
+									)
+									
+									.append($("txtBox")
+                                    .attr("value", bcars[car])
+                                    .text(bcars[car])
+									)
+									);
 								
 											}
 
@@ -122,7 +128,7 @@ $.ajax({
         </script>
 		
 		
-
+.attr("value", bcars[txtBox]
 		
 		<form method = "post" action = "/carro/">
 {% csrf_token %}
