@@ -19,6 +19,7 @@ def regcar(request):
 	
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
+	kml = Bairro.objects.kml.url()
 	dcars = {}
 	dkml = {}
 	for car in cars:
