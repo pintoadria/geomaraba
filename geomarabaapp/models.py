@@ -66,3 +66,5 @@ class Car(models.Model):
 		return u'Name: %s Marca:%s' % (self.name, self.brand.company_name)
 		#return {'name': self.name, 'brand': self.brand.company_name}
 #		return u'%s %s' % (self.regiao, self.bairro)
+
+

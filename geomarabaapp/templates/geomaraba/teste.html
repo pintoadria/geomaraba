@@ -29,119 +29,20 @@
 
         <p>Change the contents of dropdown Car based on the selection in dropdown Brand, using Django + Javascript:</p>
 
-        <div class="select-style">
-            <br />Brand:
-            <select required id="brand">
-            </select>
-
-            <br />
-            <br />Car:
-            <select id="car" >
-			</select>
-        </div>
-		
-		<br />
-
-<div class="projeto">
-  <h1>Este é o projeto 1</h1>
-  <p class="btn" id="1" style="cursor: pointer">Clique para mais dados sobre este projeto</p>
-</div>
-<div class="projeto">
-  <h1>Este é o projeto 2</h1>
-  <p class="btn" id="2"  style="cursor: pointer">Clique para mais dados sobre este projeto</p>
-</div>
-
-        <script language="javascript">
-            $('#brand').change(function() {populateCar()});
-            var cars = {{ cars|safe }}
-            var brands = {{ brands|safe }}
-            populateBrand();
-            function populateBrand() {
-                $("#brand").empty();
-                $("#brand").append('<option value="" disabled selected>Select your option</option>');
-                $.each(brands, function(v) {
-                    $('#brand')
-                        .append($("<option></option>")
-                        .attr("value", brands[v])
-                    .text(brands[v]));
-                })
-            }
-            function populateCar(event) {
-                brand = $("#brand option:selected" ).text();
-                $("#car").empty();
-                $("#car").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(cars)) {
-                    if (b==brand) {
-                        for (car in bcars) {
-                            $('#car')
-                                .append($("<option></option>")
-                                    .attr("value", bcars[car])
-                                    .text(bcars[car]));
-                        }
-                    }
-                }
-            }
-        </script>
-		
-		<script type="text/javascript">
-  $(document).ready(function(){
-
-    $('.btn').click(function(){
-      var id = $(this).attr('id');
-      $.get('/teste_ajax/' + id, function(resposta){
-          // Na variável resposta estará o retorno da sua view
-          alert(resposta);
-      });
-    });
-
-  });
-</script>
-
-		
-		<form method = "post" action = "/carro/">
-{% csrf_token %}
-<select name = "drop1" >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+        <select Id="myDropdown">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
 </select>
-<input  type = "submit" value="Submit">
-</form>
-		
-		{{ a }}
-		------
-		<div id="map"></div>
-    <script>
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: -5.34, lng: -49.07}
-        });
+<input id="txtBox" type="text">
 
-        var ctaLayer = new google.maps.KmlLayer({
-			{% for teste in mapas %}
-		  
-				url: 'http://pintoadria.pythonanywhere.com/media/{{ teste.kml }}',
-			
-			{% endfor %}
-			
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwyZUPU8ICA80UrlZdzxD_Ld9SsXXzRSU&callback=initMap">
-    </script>
+<script>
+$("#myDropdown").change(function () {
+    var selectedValue = $(this).val();
+    $("#txtBox").val($(this).find("option:selected").attr("value"))
+});
 
+</script>
     </body>
 </html>
