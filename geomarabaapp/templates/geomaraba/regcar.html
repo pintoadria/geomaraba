@@ -57,7 +57,7 @@
 
     $('.btn').click(function(){
       var id = $(this).attr('id');
-      $.get('/teste_ajax/' + id, function(resposta){
+      $.get('/carro/' + id, function(resposta){
           // Na variável resposta estará o retorno da sua view
           alert(resposta);
       });
