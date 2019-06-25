@@ -17,6 +17,17 @@ def mapa(request):
 def regcar(request):
 	if request.method == "POST":
 		a = request.POST['drop1']
+		brands = Nucleo.objects.all()
+		cars = Bairro.objects.all()
+		dcars = {}
+		for car in cars:
+			brand = str(car.nucleo)
+			if brand in dcars:
+				dcars[brand].append(car.bairro)
+			else:
+				dcars[brand] = [car.bairro]
+		cars = json.dumps(dcars)
+		brands = json.dumps([str(b) for b in brands])
 		return render(request, 'geomaraba/regcar.html', locals())
 		#return HttpResponseRedirect('/carro/')
 	
@@ -52,4 +63,4 @@ def post(request):
 	if request.method == "POST":
 		a = request.POST['drop1']
 		#return render(request, 'geomaraba/principal2.html', locals())
-		return HttpResponseRedirect('/carro/')
+		return HttpResponseRedirect('/carro/')	
