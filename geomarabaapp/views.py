@@ -28,11 +28,7 @@ def regcar(request):
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
 	
-	if request.method == "POST":
-		a = request.POST['drop1']
-		#return render(request, 'geomaraba/principal2.html', locals())
-		return HttpResponseRedirect('/carro/')
-	
+
 def testemapa(request):
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
@@ -46,3 +42,9 @@ def testemapa(request):
 	cars = json.dumps(dcars)
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'opc': 'None'})
+	
+def post(request):	
+	if request.method == "POST":
+		a = request.POST['drop1']
+		#return render(request, 'geomaraba/principal2.html', locals())
+		return HttpResponseRedirect('/carro/')
