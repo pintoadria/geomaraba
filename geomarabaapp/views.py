@@ -30,7 +30,7 @@ def regcar(request):
 			dcars[brand] = [car.bairro]
 			kml[brand] = [car.kml]
 	cars = json.dumps(dcars)
-	kml = json.dumps('kml')
+	kml = json.dumps(kml)
 	brands = json.dumps([str(b) for b in brands])
 	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'kml': kml, 'opc': 'None'})
 	
