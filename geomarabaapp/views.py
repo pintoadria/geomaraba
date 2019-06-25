@@ -20,6 +20,7 @@ def regcar(request):
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
 	dcars = {}
+	kml = {}
 	for car in cars:
 		brand = str(car.nucleo)
 		if brand in dcars:
