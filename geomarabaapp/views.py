@@ -29,8 +29,9 @@ def regcar(request):
 		cars = json.dumps(dcars)
 		brands = json.dumps([str(b) for b in brands])
 		#return render(request, 'geomaraba/regcar.html', locals())
-		return HttpResponseRedirect('/carro/')
-	
+		#return HttpResponseRedirect('/carro/')
+		return HttpResponseRedirect(reverse('/carro/'))
+		
 	brands = Nucleo.objects.all()
 	cars = Bairro.objects.all()
 	dcars = {}
