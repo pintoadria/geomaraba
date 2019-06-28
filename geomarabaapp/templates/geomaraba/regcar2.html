@@ -45,6 +45,42 @@ $.ajax({
     </head>
 
     <body>
+	
+	
+	
+	<header id="menu" class="nav navbar-default">
+                <div class="col-lg-5" style="margin-left: 40px; padding-top: 60px;">
+                    <a href="/" title="Voltar a pagina inicial" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a>
+                </div>
+                <div class="col-lg-2">
+                    <h1>Áreas</h1>
+                    <select name="shapes" id="shapes" class="form-control" data-ng-model="selectShapes" data-ng-change="getPlaceMarker()" data-ng-options="shape.fields.name for shape in shapes"></select>
+                </div>
+                <div class="col-lg-2" data-ng-show="placemarkers">
+                    <h1>Sub Áreas</h1>
+                    <select name="subareas" id="subareas" class="form-control" data-ng-model="selectPlaceMarker" data-ng-change="getDetailPlaceMarker()" data-ng-options="placemarker.fields.name for placemarker in placemarkers"></select>
+                </div>
+                <div class="col-lg-2" style="float: right; margin-right: 10px;">
+                    <br><br>
+                    <div class="alert alert-info btn-xs" role="alert">
+                        Dúvidas para encontrar o arquivo?<a class="btn-link" data-toggle="modal" data-target=".georeferenciamento-modal-lg" title="Saiba mais georeferenciamento">Clique aqui.</a>
+                    </div>
+                </div>
+                <div id="div_files_place" class="col-lg-3" style="float: right; margin-right: -15%; margin-top: 10%;">
+                    <div class="list-group" ng-show="files_area">
+                        <a href="#" class="list-group-item active" disabled><h4 class="list-group-item-heading">Arquivos Área</h4></a>
+                        <div data-ng-repeat="file in files_area">
+                            <a href="[[file.file]]" target="_blank" class="list-group-item">[[file.nome]] ([[file.type]])</a>
+                        </div>
+                    </div>
+                    <div class="list-group" ng-show="file_place_shape">
+                        <a href="#" class="list-group-item active" disabled><h4 class="list-group-item-heading">Arquivos Sub Área</h4></a>
+                        <div data-ng-repeat="file in file_place_shape">
+                            <a href="[[file.file]]" target="_blank" class="list-group-item">[[file.nome]]</a>
+                        </div>
+                    </div>
+                </div>
+        </header>
 
         <h1>Populate one dropdown based on selection in another.</h1>
 
