@@ -91,12 +91,12 @@ $.ajax({
             }
             function populateCar(event) {
                 brand = $("#brand option:selected" ).text();
-                $("#car2").empty();
-                $("#car2").append('<option value="" disabled selected>Select your option</option>');
+                $("#car").empty();
+                $("#car").append('<option value="" disabled selected>Select your option</option>');
                 for (let [b, bkml] of Object.entries(kml)) {
                     if (b==brand) {
                         for (kml in bkml) {
-                            $('#car2')
+                            $('#car')
                                 .append($("<option></option>")
                                     .attr("value", bkml[kml])
                                     .text(bkml[kml]));
