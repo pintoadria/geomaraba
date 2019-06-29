@@ -94,7 +94,7 @@ $.ajax({
                 brand = $("#brand option:selected" ).text();
                 $("#car").empty();
                 $("#car").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(cars)) {
+                for (let [b, bcars] of Object.entries(cars.kml.url)) {
                     if (b==brand) {
                         for (car in bcars) {
                             $('#car')
