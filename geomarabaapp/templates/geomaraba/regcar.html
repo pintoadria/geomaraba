@@ -118,13 +118,13 @@ $.ajax({
                 brand = $("#brand option:selected" ).text();
                 $("#car2").empty();
                 $("#car2").append('<option value="" disabled selected>Select your option</option>');
-                for (let [b, bcars] of Object.entries(kml)) {
+                for (let [b, bkml] of Object.entries(kml)) {
                     if (b==brand) {
-                        for (kml in bcars) {
+                        for (kml in bkml) {
                             $('#car2')
                                 .append($("<option></option>")
-                                    .attr("value", bcars[kml])
-                                    .text(bcars[kml]));
+                                    .attr("value", bkml[kml])
+                                    .text(bkml[kml]));
 									
 
 					}		
