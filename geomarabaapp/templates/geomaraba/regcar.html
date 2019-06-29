@@ -118,12 +118,12 @@ $.ajax({
 			
 			    function populateCar2(event) {
                 brand = $("#brand option:selected" ).text();
-                $("#car").empty();
-                $("#car").append('<option value="" disabled selected>Select your option</option>');
+                $("#car2").empty();
+                $("#car2").append('<option value="" disabled selected>Select your option</option>');
                 for (let [b, bcars] of Object.entries(cars)) {
                     if (b==brand) {
                         for (car in bcars) {
-                            $('#car')
+                            $('#car2')
                                 .append($("<option></option>")
                                     .attr("value", bcars[car])
                                     .text(bcars[car]));
