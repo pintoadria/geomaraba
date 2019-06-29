@@ -25,7 +25,7 @@ def regcar(request):
 	for car in cars:
 		brand = str(car.nucleo)
 		if brand in dcars:
-			dcars[brand].append(car)
+			dcars[brand].append(car.bairro)
 			dkml[brand].append(car.kml.url)
 		else:
 			dcars[brand] = [car.bairro]
