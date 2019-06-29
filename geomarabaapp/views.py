@@ -25,15 +25,15 @@ def regcar(request):
 	for car in cars:
 		brand = str(car.nucleo)
 		if brand in dcars:
-			dcars[brand].append(car.bairro)
+			dcars[brand].append(car)
 			dkml[brand].append(car.kml.url)
 		else:
-			dcars[brand] = [car.bairro]
+			dcars[brand] = [car]
 			dkml[brand] = [car.kml.url]
 	cars = json.dumps(dcars)
 	kml = json.dumps(str(dkml))
 	brands = json.dumps([str(b) for b in brands])
-	return render(request, 'geomaraba/regcar2.html', {'brands': brands, 'cars': cars, 'kml': kml, 'opc': 'None'})
+	return render(request, 'geomaraba/regcar.html', {'brands': brands, 'cars': cars, 'kml': kml, 'opc': 'None'})
 	
 
 
